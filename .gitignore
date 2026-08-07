@@ -1,0 +1,4 @@
+addons/gut/
+build/
+.godot/
+*.tmp

@@ -1,0 +1,18 @@
+main_bg_huanggu.png OK
+main_btn_close.png OK
+main_btn_breakthrough.png OK
+main_btn_stage.png OK
+settle_popup_scroll.png OK
+vfx_breakthrough_ziqi_f1.png OK
+vfx_breakthrough_ziqi_f2.png OK
+---- size ----
+main_bg_huanggu.png                 139.8 KB
+main_btn_breakthrough.png             2.2 KB
+main_btn_close.png                    1.7 KB
+main_btn_stage.png                    1.7 KB
+settle_popup_scroll.png               2.8 KB
+vfx_breakthrough_ziqi_f1.png         49.8 KB
+vfx_breakthrough_ziqi_f2.png         50.0 KB
+TOTAL: 248.03 KB
+DONE
+EXIT=0

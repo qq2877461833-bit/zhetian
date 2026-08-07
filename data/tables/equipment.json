@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "table": "equipment",
+  "description": "装备系统（单主角修仙培养：强化/升阶），主角叶凡专属",
+  "slots": [
+    {
+      "id": "weapon",
+      "name": "武器",
+      "icon": "equip_weapon"
+    },
+    {
+      "id": "armor",
+      "name": "防具",
+      "icon": "equip_armor"
+    },
+    {
+      "id": "accessory",
+      "name": "饰品",
+      "icon": "equip_accessory"
+    },
+    {
+      "id": "talisman",
+      "name": "符箓",
+      "icon": "equip_talisman"
+    }
+  ],
+  "items": [
+    {
+      "id": "e_wp_001",
+      "name": "青铜古剑",
+      "slot": "weapon",
+      "rarity": "fan",
+      "base_atk": 50,
+      "base_def": 0,
+      "base_hp": 0,
+      "growth": 0.12,
+      "max_level": 25,
+      "desc": "荒古禁地出土的青铜古剑，刻有模糊铭文。"
+    },
+    {
+      "id": "e_wp_002",
+      "name": "紫电神剑",
+      "slot": "weapon",
+      "rarity": "ling",
+      "base_atk": 120,
+      "base_def": 0,
+      "base_hp": 0,
+      "growth": 0.15,
+      "max_level": 25,
+      "desc": "雷音寺秘藏，剑身蕴紫电之力。"
+    },
+    {
+      "id": "e_wp_003",
+      "name": "大罗仙剑",
+      "slot": "weapon",
+      "rarity": "xuan",
+      "base_atk": 250,
+      "base_def": 30,
+      "base_hp": 0,
+      "growth": 0.18,
+      "max_level": 25,
+      "desc": "虚空经中记载的仙剑图谱所铸。"
+    },
+    {
+      "id": "e_wp_004",
+      "name": "荒古天剑",
+      "slot": "weapon",
+      "rarity": "di",
+      "base_atk": 450,
+      "base_def": 60,
+      "base_hp": 200,
+      "growth": 0.2,
+      "max_level": 25,
+      "desc": "荒古禁地深处寻得的天兵，剑意通天。",
+      "crit_rate": 0.03,
+      "crit_dmg": 0.25
+    },
+    {
+      "id": "e_wp_005",
+      "name": "帝兵·虚空剑",
+      "slot": "weapon",
+      "rarity": "tian",
+      "base_atk": 800,
+      "base_def": 100,
+      "base_hp": 500,
+      "growth": 0.22,
+      "max_level": 25,
+      "desc": "虚空大帝遗兵，一剑可斩山河。",
+      "crit_rate": 0.05,
+      "crit_dmg": 0.4,
+      "base_matk": 200
+    },
+    {
+      "id": "e_ar_001",
+      "name": "荒古战甲",
+      "slot": "armor",
+      "rarity": "fan",
+      "base_atk": 0,
+      "base_def": 60,
+      "base_hp": 200,
+      "growth": 0.1,
+      "max_level": 25,
+      "desc": "荒古禁地妖兽鳞甲所制。"
+    },
+    {
+      "id": "e_ar_002",
+      "name": "天蚕道衣",
+      "slot": "armor",
+      "rarity": "ling",
+      "base_atk": 0,
+      "base_def": 150,
+      "base_hp": 500,
+      "growth": 0.12,
+      "max_level": 25,
+      "desc": "东荒天蚕丝织就，水火不侵。"
+    },
+    {
+      "id": "e_ar_003",
+      "name": "玄龟灵甲",
+      "slot": "armor",
+      "rarity": "xuan",
+      "base_atk": 0,
+      "base_def": 300,
+      "base_hp": 1000,
+      "growth": 0.14,
+      "max_level": 25,
+      "desc": "万年玄龟甲炼制，防御惊世。"
+    },
+    {
+      "id": "e_ar_004",
+      "name": "天衣无缝",
+      "slot": "armor",
+      "rarity": "di",
+      "base_atk": 20,
+      "base_def": 500,
+      "base_hp": 2000,
+      "growth": 0.16,
+      "max_level": 25,
+      "desc": "天外玄纱织就，刀枪不入。"
+    },
+    {
+      "id": "e_ac_001",
+      "name": "玉佩",
+      "slot": "accessory",
+      "rarity": "fan",
+      "base_atk": 20,
+      "base_def": 20,
+      "base_hp": 100,
+      "growth": 0.08,
+      "max_level": 25,
+      "desc": "九龙拉棺中所得古玉。"
+    },
+    {
+      "id": "e_ac_002",
+      "name": "辟火珠",
+      "slot": "accessory",
+      "rarity": "ling",
+      "base_atk": 50,
+      "base_def": 40,
+      "base_hp": 300,
+      "growth": 0.1,
+      "max_level": 25,
+      "desc": "南海鲛人泪所化，万火不侵。",
+      "crit_rate": 0.02
+    },
+    {
+      "id": "e_ac_003",
+      "name": "紫金铃",
+      "slot": "accessory",
+      "rarity": "xuan",
+      "base_atk": 100,
+      "base_def": 80,
+      "base_hp": 600,
+      "growth": 0.12,
+      "max_level": 25,
+      "desc": "紫金神铁所铸，铃声可镇心神。",
+      "crit_rate": 0.03,
+      "crit_dmg": 0.2
+    },
+    {
+      "id": "e_ac_004",
+      "name": "镇魂钟",
+      "slot": "accessory",
+      "rarity": "di",
+      "base_atk": 180,
+      "base_def": 150,
+      "base_hp": 1200,
+      "growth": 0.14,
+      "max_level": 25,
+      "desc": "荒古至宝，钟声可碎人魂魄。",
+      "crit_rate": 0.04,
+      "crit_dmg": 0.3,
+      "base_matk": 100
+    },
+    {
+      "id": "e_tl_001",
+      "name": "火灵符",
+      "slot": "talisman",
+      "rarity": "fan",
+      "base_atk": 30,
+      "base_def": 0,
+      "base_hp": 0,
+      "growth": 0.08,
+      "max_level": 25,
+      "desc": "朱砂书就的火系灵符。",
+      "base_matk": 40
+    },
+    {
+      "id": "e_tl_002",
+      "name": "遁地符",
+      "slot": "talisman",
+      "rarity": "ling",
+      "base_atk": 60,
+      "base_def": 30,
+      "base_hp": 200,
+      "growth": 0.1,
+      "max_level": 25,
+      "desc": "刻有遁地法阵的宝符。",
+      "base_matk": 80,
+      "dodge": 0.02
+    },
+    {
+      "id": "e_tl_003",
+      "name": "雷法符",
+      "slot": "talisman",
+      "rarity": "xuan",
+      "base_atk": 130,
+      "base_def": 60,
+      "base_hp": 500,
+      "growth": 0.12,
+      "max_level": 25,
+      "desc": "蕴九天神雷之力的雷符。",
+      "base_matk": 150,
+      "crit_rate": 0.03
+    }
+  ],
+  "enhance": {
+    "ling_cost_per_level": 1000,
+    "ling_growth": 1.15,
+    "yuan_for_breakthrough": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "max_stage": 5
+  }
+}

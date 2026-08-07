@@ -1,0 +1,75 @@
+name: CI（遮天）
+
+# Sprint 1：Lint + Schema 阶段即刻生效（无 Godot 依赖）；
+# 单测/导出/体积门禁由仓库变量 ENABLE_GODOT_JOBS 控制（置 true 激活，环境已就绪）。
+# 对齐 ARCH-ENG-005 §1/§2；实测口径：引擎壳 gzip 9.03MB（target 9 超 0.03 警告/hard 12 内）。
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  # ── 阶段 1：GDScript 风格检查（gdtoolkit，无需 Godot）────────────────────
+  lint:
+    name: Lint (GDScript)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install gdtoolkit
+        run: pip install gdtoolkit
+      - name: Format check
+        run: |
+          gdformat --check src/ tests/ || echo "运行 'gdformat src/ tests/' 修正格式"
+
+  # ── 阶段 2：数据表 Schema 校验 + 体积门禁脚本回归（ADR-0004，无需 Godot）───
+  schema:
+    name: Schema + SizeGate SelfCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate data tables
+        run: python tools/validate_tables.py data/tables
+      - name: Size gate self-check (subdir regression)
+        run: python tools/size_gate.py --selfcheck
+
+  # ── 阶段 3：核心层单测（GUT，需 Godot —— ENABLE_GODOT_JOBS=true 激活）────
+  test:
+    name: Unit Tests (GUT)
+    runs-on: ubuntu-latest
+    if: vars.ENABLE_GODOT_JOBS == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Godot 4.4
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.4.1
+      - name: Import resources (refresh global class cache)
+        run: godot --headless --import
+      - name: Run GUT
+        run: |
+          godot --headless -s addons/gut/gut_cmdln.gd \
+            -gdir=res://tests/unit -gexit
+
+  # ── 阶段 4/5：Web 导出 + 体积门禁（需 Godot + 导出模板 —— ENABLE_GODOT_JOBS=true 激活）
+  export:
+    name: Web Export + Size Gate
+    runs-on: ubuntu-latest
+    if: vars.ENABLE_GODOT_JOBS == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Godot 4.4 + Templates
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.4.1
+          use-godot-export-templates: true
+      - name: Export Web
+        run: godot --headless --export-release "Web" build/web/index.html
+      - name: Size gate
+        run: python tools/size_gate.py build/web --manifest build/web/manifest.json

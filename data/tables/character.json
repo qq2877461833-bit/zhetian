@@ -1,0 +1,402 @@
+{
+  "schema_version": 2,
+  "table": "character",
+  "description": "角色池与养成基础（Sprint 2 细化版：首批 5 名完整数值 + 狠人样例保留；全量 30 名由 EPT-03 补齐）。数值框架锚定 GDD-002 §3.1/§3.2/§7.2；境界模板角色通用（GDD-001 §3.2.1，R_c 公式）；账号上限约束 account_ceiling_gap=1（GDD-002 §3.3）；稀有度色阶引用美术圣经 §5.4；抽卡概率与保底以 data/tables/gacha.json 为唯一事实来源。字段说明：rarity 六档 fan/ling/xuan/di/tian/di_pin（凡/灵/玄/地/天/帝品）；class 三职业 huanggu_tizhi(荒古体质)/xiandao_shentong(仙道神通)/bingqi_liupai(兵器流派)，克制环 huanggu->xiandao->bingqi->huanggu（battle.json counter）；origin plot=剧情赠送 / gacha=抽卡。",
+  "rarity_order": [
+    "fan",
+    "ling",
+    "xuan",
+    "di",
+    "tian",
+    "di_pin"
+  ],
+  "class_names": {
+    "huanggu_tizhi": "荒古体质",
+    "xiandao_shentong": "仙道神通",
+    "bingqi_liupai": "兵器流派"
+  },
+  "skills": {
+    "pu_gong": {
+      "id": "pu_gong",
+      "name": "普攻·一式",
+      "type": "basic",
+      "coef": 1.0,
+      "target": "single",
+      "desc": "基础攻击，无消耗。"
+    },
+    "zhu_dong_huanggu": {
+      "id": "zhu_dong_huanggu",
+      "name": "荒古护体",
+      "type": "active",
+      "coef": 0.0,
+      "target": "self",
+      "effect": "def_up",
+      "effect_value": 0.15,
+      "cooldown": 3,
+      "desc": "荒古体质流转，自身防御提升 15%，持续 2 回合。"
+    },
+    "da_zhao_huanggu": {
+      "id": "da_zhao_huanggu",
+      "name": "荒古圣体·镇世",
+      "type": "ultimate",
+      "coef": 2.4,
+      "target": "single",
+      "effect": "dmg",
+      "energy_cost": 100,
+      "desc": "引动荒古圣体之力，对单体造成 240% 攻击伤害。"
+    },
+    "zhu_dong_xiandao": {
+      "id": "zhu_dong_xiandao",
+      "name": "神通·凝神",
+      "type": "active",
+      "coef": 1.2,
+      "target": "single",
+      "effect": "dmg",
+      "cooldown": 3,
+      "desc": "仙道神通凝聚，对单体造成 120% 攻击伤害。"
+    },
+    "da_zhao_xiandao": {
+      "id": "da_zhao_xiandao",
+      "name": "仙道·紫气东来",
+      "type": "ultimate",
+      "coef": 2.1,
+      "target": "all",
+      "effect": "dmg",
+      "energy_cost": 100,
+      "desc": "引动紫气东来，对全体造成 210% 攻击伤害。"
+    },
+    "zhu_dong_bingqi": {
+      "id": "zhu_dong_bingqi",
+      "name": "兵伐·御器",
+      "type": "active",
+      "coef": 1.3,
+      "target": "single",
+      "effect": "dmg",
+      "cooldown": 3,
+      "desc": "驱使兵器流法，对单体造成 130% 攻击伤害。"
+    },
+    "da_zhao_bingqi": {
+      "id": "da_zhao_bingqi",
+      "name": "兵流·万剑归宗",
+      "type": "ultimate",
+      "coef": 1.9,
+      "target": "all",
+      "effect": "dmg",
+      "energy_cost": 100,
+      "desc": "万剑齐发，对全体造成 190% 攻击伤害。"
+    },
+    "s_ye_fan_active": {
+      "id": "s_ye_fan_active",
+      "name": "圣体之光",
+      "type": "active",
+      "coef": 1.5,
+      "target": "single",
+      "effect": "dmg",
+      "cooldown": 3,
+      "desc": "荒古圣体金身显化，对单体造成 150% 攻击伤害，并令自身受疗提升 10%。"
+    },
+    "s_ye_fan_ult": {
+      "id": "s_ye_fan_ult",
+      "name": "六道轮回拳",
+      "type": "ultimate",
+      "coef": 2.8,
+      "target": "single",
+      "effect": "dmg",
+      "energy_cost": 100,
+      "desc": "演化六道轮回，对单体造成 280% 攻击伤害，无视目标 20% 防御。"
+    },
+    "s_pang_bo_ult": {
+      "id": "s_pang_bo_ult",
+      "name": "妖神附体·狂化",
+      "type": "ultimate",
+      "coef": 2.2,
+      "target": "single",
+      "effect": "dmg_self_buff",
+      "energy_cost": 100,
+      "desc": "引妖神血脉狂化，对单体造成 220% 攻击伤害，并提升自身攻击 15%（2 回合）。"
+    },
+    "s_ji_ziyue_active": {
+      "id": "s_ji_ziyue_active",
+      "name": "紫月凝辉",
+      "type": "active",
+      "coef": 1.4,
+      "target": "single",
+      "effect": "dmg_debuff",
+      "cooldown": 3,
+      "desc": "紫月流光凝为利刃，对单体造成 140% 攻击伤害，降低目标防御 10%（2 回合）。"
+    },
+    "s_ji_ziyue_ult": {
+      "id": "s_ji_ziyue_ult",
+      "name": "虚空经·镇",
+      "type": "ultimate",
+      "coef": 2.0,
+      "target": "all",
+      "effect": "dmg_stun",
+      "energy_cost": 100,
+      "desc": "运转虚空经，对全体造成 200% 攻击伤害，30% 概率令目标眩晕 1 回合。"
+    },
+    "s_hei_huang_ult": {
+      "id": "s_hei_huang_ult",
+      "name": "吞天",
+      "type": "ultimate",
+      "coef": 1.8,
+      "target": "all",
+      "effect": "dmg_lifesteal",
+      "energy_cost": 100,
+      "desc": "大黑狗张口吞天，对全体造成 180% 攻击伤害，并按伤害 30% 回复自身生命。"
+    },
+    "s_duan_de_active": {
+      "id": "s_duan_de_active",
+      "name": "移星换斗",
+      "type": "active",
+      "coef": 0.0,
+      "target": "self",
+      "effect": "evade_up",
+      "effect_value": 0.2,
+      "cooldown": 3,
+      "desc": "偷天换日，自身闪避提升 20%（2 回合）。"
+    },
+    "s_duan_de_ult": {
+      "id": "s_duan_de_ult",
+      "name": "轮回秘术·葬天",
+      "type": "ultimate",
+      "coef": 2.0,
+      "target": "all",
+      "effect": "dmg_revive",
+      "energy_cost": 100,
+      "desc": "引轮回之力葬天，对全体造成 200% 攻击伤害；若击杀目标，自身回复 20% 生命。"
+    }
+  },
+  "bonds": [
+    {
+      "id": "tong_sheng_xiong_di",
+      "name": "生死兄弟",
+      "members": [
+        "ye_fan",
+        "pang_bo"
+      ],
+      "effect": "atk_up",
+      "value": 0.05,
+      "desc": "叶凡与庞博同生共死，同场上阵攻击 +5%。"
+    },
+    {
+      "id": "di_lu_tong_xing",
+      "name": "帝路同行",
+      "members": [
+        "ye_fan",
+        "ji_ziyue"
+      ],
+      "effect": "hp_up",
+      "value": 0.05,
+      "desc": "叶凡与姬紫月共赴帝路，同场上阵生命 +5%。"
+    },
+    {
+      "id": "yuan_jia_lu_zhai",
+      "name": "冤家路窄",
+      "members": [
+        "hei_huang",
+        "duan_de"
+      ],
+      "effect": "def_up",
+      "value": 0.05,
+      "desc": "黑皇与段德互相拆台却并肩作战，同场上阵防御 +5%。"
+    }
+  ],
+  "characters": [
+    {
+      "id": "ye_fan",
+      "name": "叶凡",
+      "rarity": "tian",
+      "origin": "plot",
+      "is_original": false,
+      "class": "huanggu_tizhi",
+      "faction": "donghuang",
+      "flavor": "荒古圣体，逆天改命。",
+      "base": {
+        "atk": 120,
+        "def": 80,
+        "hp": 1500,
+        "spd": 100,
+        "matk": 60,
+        "crit_rate": 0.05,
+        "crit_dmg": 1.5,
+        "dodge": 0.03
+      },
+      "growth": {
+        "atk_per_level": 6.0,
+        "def_per_level": 3.5,
+        "hp_per_level": 60,
+        "spd_per_level": 0.8
+      },
+      "skills": [
+        "pu_gong",
+        "s_ye_fan_active",
+        "s_ye_fan_ult"
+      ],
+      "bonds": [
+        "tong_sheng_xiong_di",
+        "di_lu_tong_xing"
+      ],
+      "artifact_slots": 2,
+      "fragments_for_star": 30
+    },
+    {
+      "id": "pang_bo",
+      "name": "庞博",
+      "rarity": "di",
+      "origin": "plot",
+      "is_original": false,
+      "class": "huanggu_tizhi",
+      "faction": "donghuang",
+      "flavor": "义气干云，妖神血脉。",
+      "base": {
+        "atk": 110,
+        "def": 100,
+        "hp": 1700,
+        "spd": 85
+      },
+      "growth": {
+        "atk_per_level": 5.0,
+        "def_per_level": 5.0,
+        "hp_per_level": 70,
+        "spd_per_level": 0.5
+      },
+      "skills": [
+        "pu_gong",
+        "zhu_dong_huanggu",
+        "s_pang_bo_ult"
+      ],
+      "bonds": [
+        "tong_sheng_xiong_di"
+      ],
+      "artifact_slots": 2,
+      "fragments_for_star": 30
+    },
+    {
+      "id": "ji_ziyue",
+      "name": "姬紫月",
+      "rarity": "tian",
+      "origin": "gacha",
+      "is_original": false,
+      "class": "xiandao_shentong",
+      "faction": "zhongzhou",
+      "flavor": "姬家天骄，紫月横空。",
+      "base": {
+        "atk": 130,
+        "def": 70,
+        "hp": 1300,
+        "spd": 115
+      },
+      "growth": {
+        "atk_per_level": 7.0,
+        "def_per_level": 2.5,
+        "hp_per_level": 50,
+        "spd_per_level": 1.2
+      },
+      "skills": [
+        "pu_gong",
+        "s_ji_ziyue_active",
+        "s_ji_ziyue_ult"
+      ],
+      "bonds": [
+        "di_lu_tong_xing"
+      ],
+      "artifact_slots": 2,
+      "fragments_for_star": 40
+    },
+    {
+      "id": "hei_huang",
+      "name": "黑皇",
+      "rarity": "xuan",
+      "origin": "gacha",
+      "is_original": false,
+      "class": "bingqi_liupai",
+      "faction": "donghuang",
+      "flavor": "无始座下大黑狗，贪财好色却吞天。",
+      "base": {
+        "atk": 105,
+        "def": 85,
+        "hp": 1500,
+        "spd": 105
+      },
+      "growth": {
+        "atk_per_level": 5.5,
+        "def_per_level": 3.0,
+        "hp_per_level": 55,
+        "spd_per_level": 1.0
+      },
+      "skills": [
+        "pu_gong",
+        "zhu_dong_bingqi",
+        "s_hei_huang_ult"
+      ],
+      "bonds": [
+        "yuan_jia_lu_zhai"
+      ],
+      "artifact_slots": 2,
+      "fragments_for_star": 30
+    },
+    {
+      "id": "duan_de",
+      "name": "段德",
+      "rarity": "tian",
+      "origin": "gacha",
+      "is_original": false,
+      "class": "xiandao_shentong",
+      "faction": "zhongzhou",
+      "flavor": "无良道士，渡劫天尊转世之秘。",
+      "base": {
+        "atk": 125,
+        "def": 75,
+        "hp": 1350,
+        "spd": 110
+      },
+      "growth": {
+        "atk_per_level": 6.5,
+        "def_per_level": 3.5,
+        "hp_per_level": 55,
+        "spd_per_level": 1.1
+      },
+      "skills": [
+        "pu_gong",
+        "s_duan_de_active",
+        "s_duan_de_ult"
+      ],
+      "bonds": [
+        "yuan_jia_lu_zhai"
+      ],
+      "artifact_slots": 2,
+      "fragments_for_star": 40
+    },
+    {
+      "id": "hen_ren",
+      "name": "狠人",
+      "rarity": "di_pin",
+      "origin": "gacha",
+      "is_original": false,
+      "class": "bingqi_liupai",
+      "faction": "zhongzhou",
+      "flavor": "不为成仙，只为在红尘中等你归来。（帝品，限后续大境界/活动投放）",
+      "base": {
+        "atk": 140,
+        "def": 90,
+        "hp": 1400,
+        "spd": 120
+      },
+      "growth": {
+        "atk_per_level": 8.0,
+        "def_per_level": 3.0,
+        "hp_per_level": 55,
+        "spd_per_level": 1.3
+      },
+      "skills": [
+        "pu_gong",
+        "zhu_dong_bingqi",
+        "da_zhao_bingqi"
+      ],
+      "bonds": [],
+      "artifact_slots": 2,
+      "fragments_for_star": 40
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+Godot Engine v4.4.stable.official.4c311cbee - https://godotengine.org
+
+first_scan_filesystem: begin: 项目初始化 steps: 5
+	first_scan_filesystem: step 0: 正在扫描文件结构……
+	first_scan_filesystem: step 1: 正在加载全局类名……
+	first_scan_filesystem: step 2: 正在校验 GDExtension……
+	first_scan_filesystem: step 3: 正在创建自动加载脚本……
+	first_scan_filesystem: step 4: 正在初始化插件……
+	first_scan_filesystem: step 5: 正在启动文件扫描……
+first_scan_filesystem: end
+savepack: begin: 打包中 steps: 102
+	savepack: step 2: 保存文件：res://.godot/imported/main_bg_huanggu.png-bb797d8fa7723e7cb989218bfd1ea4a1.ctex
+	savepack: step 2: 保存文件：res://assets/placeholder/main_bg_huanggu.png.import
+	savepack: step 6: 保存文件：res://.godot/imported/main_btn_breakthrough.png-bbb61e510b4cf8200fda2316bf3f6d02.ctex
+	savepack: step 6: 保存文件：res://assets/placeholder/main_btn_breakthrough.png.import
+	savepack: step 11: 保存文件：res://.godot/imported/main_btn_close.png-d1bddbfe541751d5713a2c3f08061509.ctex
+	savepack: step 11: 保存文件：res://assets/placeholder/main_btn_close.png.import
+	savepack: step 15: 保存文件：res://.godot/imported/main_btn_stage.png-dacbeeb626abcd7a2fbe5ac1badd3708.ctex
+	savepack: step 15: 保存文件：res://assets/placeholder/main_btn_stage.png.import
+	savepack: step 20: 保存文件：res://.godot/imported/settle_popup_scroll.png-ba614cf1aa3daca0202582260955e894.ctex
+	savepack: step 20: 保存文件：res://assets/placeholder/settle_popup_scroll.png.import
+	savepack: step 24: 保存文件：res://.godot/imported/vfx_breakthrough_ziqi_f1.png-265d90e7b81742fbf98eee8cc75c3c98.ctex
+	savepack: step 24: 保存文件：res://assets/placeholder/vfx_breakthrough_ziqi_f1.png.import
+	savepack: step 29: 保存文件：res://.godot/imported/vfx_breakthrough_ziqi_f2.png-f6dcc76cabc180c70d30fd2f9d76f26d.ctex
+	savepack: step 29: 保存文件：res://assets/placeholder/vfx_breakthrough_ziqi_f2.png.import
+	savepack: step 33: 保存文件：res://src/foundation/time_service.gdc
+	savepack: step 38: 保存文件：res://src/main.gdc
+	savepack: step 42: 保存文件：res://.godot/exported/133200997/export-dbe59258b6e7c5860bca2a5bbd0223c3-main.scn
+	savepack: step 47: 保存文件：res://data/tables/battle.json
+	savepack: step 52: 保存文件：res://data/tables/character.json
+	savepack: step 56: 保存文件：res://data/tables/constants.json
+	savepack: step 61: 保存文件：res://data/tables/drop.json
+	savepack: step 65: 保存文件：res://data/tables/gacha.json
+	savepack: step 70: 保存文件：res://data/tables/realm.json
+	savepack: step 74: 保存文件：res://src/core/battle_service.gdc
+	savepack: step 79: 保存文件：res://src/core/idle_income_engine.gdc
+	savepack: step 83: 保存文件：res://src/core/realm_engine.gdc
+	savepack: step 88: 保存文件：res://src/core/save_model.gdc
+	savepack: step 92: 保存文件：res://src/foundation/resource_manager.gdc
+	savepack: step 97: 保存文件：res://src/foundation/save_manager.gdc
+	savepack: step 97: 保存文件：res://src/foundation/time_service.gd.remap
+	savepack: step 97: 保存文件：res://src/main.gd.remap
+	savepack: step 97: 保存文件：res://src/main.tscn.remap
+	savepack: step 97: 保存文件：res://src/core/battle_service.gd.remap
+	savepack: step 97: 保存文件：res://src/core/idle_income_engine.gd.remap
+	savepack: step 97: 保存文件：res://src/core/realm_engine.gd.remap
+	savepack: step 97: 保存文件：res://src/core/save_model.gd.remap
+	savepack: step 97: 保存文件：res://src/foundation/resource_manager.gd.remap
+	savepack: step 97: 保存文件：res://src/foundation/save_manager.gd.remap
+	savepack: step 97: 保存文件：res://.godot/global_script_class_cache.cfg
+	savepack: step 97: 保存文件：res://.godot/uid_cache.bin
+	savepack: step 97: 保存文件：res://project.binary
+savepack: end
+loading_editor_layout: begin: 正在加载编辑器 steps: 5
+	loading_editor_layout: step 0: 正在加载编辑器布局……
+loading_editor_layout: end
+export_exit=0

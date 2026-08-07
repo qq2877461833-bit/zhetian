@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "table": "drop",
+  "description": "副本掉落与试炼塔（数值锚定 GDD-004 §3.1/§4.1/§5.1；体力复用 battle.energy）",
+  "dungeons": [
+    {
+      "id": "yuanshi_mijing", "name": "源石秘境", "energy_cost": 10, "daily_limit": 2,
+      "tiers": [
+        { "tier": 1, "is_elite": false, "unlock_realm": "lunhai", "drops": [
+            { "type": "yuan", "min": 3, "max": 3, "weight": 1.0 },
+            { "type": "yuan_shard", "min": 2, "max": 2, "weight": 1.0 } ] },
+        { "tier": 2, "is_elite": false, "unlock_realm": "daogong", "drops": [
+            { "type": "yuan", "min": 5, "max": 5, "weight": 1.0 },
+            { "type": "yuan_shard", "min": 4, "max": 4, "weight": 1.0 } ] },
+        { "tier": 3, "is_elite": true, "unlock_realm": "daogong", "drops": [
+            { "type": "yuan", "min": 7, "max": 7, "weight": 1.0 },
+            { "type": "yuan_shard", "min": 6, "max": 6, "weight": 1.0 } ] }
+      ]
+    },
+    {
+      "id": "lingshi_kuangmai", "name": "灵石矿脉", "energy_cost": 10, "daily_limit": 3,
+      "tiers": [
+        { "tier": 1, "is_elite": false, "unlock_realm": "lunhai", "drops": [
+            { "type": "ling", "min": 80000, "max": 80000, "weight": 1.0 } ] },
+        { "tier": 2, "is_elite": false, "unlock_realm": "daogong", "drops": [
+            { "type": "ling", "min": 160000, "max": 160000, "weight": 1.0 } ] }
+      ]
+    },
+    {
+      "id": "shilian_daochang", "name": "试炼道场", "energy_cost": 10, "daily_limit": 3,
+      "tiers": [
+        { "tier": 1, "is_elite": false, "unlock_realm": "lunhai", "drops": [
+            { "type": "exp_book", "min": 2, "max": 3, "weight": 1.0 } ] }
+      ]
+    },
+    {
+      "id": "fabao_mijing", "name": "法宝秘境", "energy_cost": 10, "daily_limit": 2,
+      "unlock_realm": "shenqiao",
+      "tiers": [
+        { "tier": 1, "is_elite": false, "unlock_realm": "shenqiao", "drops": [
+            { "type": "artifact_mat", "min": 1, "max": 2, "weight": 1.0 } ] }
+      ]
+    },
+    {
+      "id": "gongfa_dongtian", "name": "功法洞天", "energy_cost": 10, "daily_limit": 2,
+      "unlock_realm": "bian",
+      "tiers": [
+        { "tier": 1, "is_elite": false, "unlock_realm": "bian", "drops": [
+            { "type": "skill_mat", "min": 1, "max": 2, "weight": 1.0 } ] }
+      ]
+    }
+  ],
+  "tower": {
+    "energy_per_floor": 5,
+    "daily_max_floors": 10,
+    "node_every": 10,
+    "max_floors": 30,
+    "unlock_stage": "s011"
+  }
+}

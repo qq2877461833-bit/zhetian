@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "table": "gacha",
+  "description": "抽卡概率与保底（数值锚定 GDD-002 §3.1.2；宝物池：帝兵/功法/材料）。注：GDD 六档概率原文求和=100.3%，舍入吸收进凡品档。",
+  "pools": [
+    {
+      "id": "standard",
+      "name": "常驻池",
+      "rarity_prob": {
+        "fan": 0.597,
+        "ling": 0.25,
+        "xuan": 0.1,
+        "di": 0.04,
+        "tian": 0.01,
+        "di_pin": 0.003
+      },
+      "pity_di": 60,
+      "pity_tian": 90,
+      "segment": {
+        "open_from": "lunhai",
+        "open_di_tian_after": "daogong"
+      },
+      "byproduct": {
+        "type": "yuan_shard",
+        "amount": 1
+      },
+      "pity_carry_over": true,
+      "treasures": [
+        {
+          "id": "e_wp_002",
+          "type": "equipment",
+          "rarity": "ling"
+        },
+        {
+          "id": "e_wp_003",
+          "type": "equipment",
+          "rarity": "xuan"
+        },
+        {
+          "id": "e_ar_002",
+          "type": "equipment",
+          "rarity": "ling"
+        },
+        {
+          "id": "e_ac_001",
+          "type": "equipment",
+          "rarity": "fan"
+        },
+        {
+          "id": "e_ac_003",
+          "type": "equipment",
+          "rarity": "xuan"
+        },
+        {
+          "id": "e_tl_002",
+          "type": "equipment",
+          "rarity": "ling"
+        },
+        {
+          "id": "sk_002",
+          "type": "skill",
+          "rarity": "ling"
+        },
+        {
+          "id": "sk_003",
+          "type": "skill",
+          "rarity": "ling"
+        },
+        {
+          "id": "sk_004",
+          "type": "skill",
+          "rarity": "xuan"
+        },
+        {
+          "id": "sk_006",
+          "type": "skill",
+          "rarity": "ling"
+        },
+        {
+          "id": "sk_007",
+          "type": "skill",
+          "rarity": "xuan"
+        },
+        {
+          "id": "e_wp_004",
+          "type": "equipment",
+          "rarity": "di"
+        },
+        {
+          "id": "e_ar_004",
+          "type": "equipment",
+          "rarity": "di"
+        },
+        {
+          "id": "e_ac_004",
+          "type": "equipment",
+          "rarity": "di"
+        },
+        {
+          "id": "sk_008",
+          "type": "skill",
+          "rarity": "di"
+        },
+        {
+          "id": "sk_009",
+          "type": "skill",
+          "rarity": "di"
+        },
+        {
+          "id": "sk_011",
+          "type": "skill",
+          "rarity": "di"
+        },
+        {
+          "id": "e_wp_005",
+          "type": "equipment",
+          "rarity": "tian"
+        },
+        {
+          "id": "sk_010",
+          "type": "skill",
+          "rarity": "tian"
+        },
+        {
+          "id": "sk_012",
+          "type": "skill",
+          "rarity": "tian"
+        }
+      ]
+    }
+  ]
+}

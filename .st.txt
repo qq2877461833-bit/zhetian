@@ -1,0 +1,27 @@
+total 28
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 16:40 .
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 16:08 ..
+-rw-r--r-- 1 YangLimei 1049089 512 Aug  6 15:24 .gddlist.txt
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:45 .github
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 16:35 .godot
+-rw-r--r-- 1 YangLimei 1049089 299 Aug  6 15:52 .sg.txt
+-rw-r--r-- 1 YangLimei 1049089 178 Aug  6 15:45 .sprint.txt
+-rw-r--r-- 1 YangLimei 1049089   0 Aug  6 16:40 .st.txt
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:02 .workbuddy
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 16:11 addons
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 16:22 build
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:45 data
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:36 design
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:14 docs
+-rw-r--r-- 1 YangLimei 1049089 728 Aug  6 16:09 export_presets.cfg
+-rw-r--r-- 1 YangLimei 1049089 183 Aug  6 16:31 probe_classdb.gd
+-rw-r--r-- 1 YangLimei 1049089  20 Aug  6 16:35 probe_classdb.gd.uid
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:45 production
+-rw-r--r-- 1 YangLimei 1049089 480 Aug  6 16:21 project.godot
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 16:22 src
+-rw-r--r-- 1 YangLimei 1049089  58 Aug  6 16:28 test_logger_probe.gd
+-rw-r--r-- 1 YangLimei 1049089  20 Aug  6 16:35 test_logger_probe.gd.uid
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:40 tests
+drwxr-xr-x 1 YangLimei 1049089   0 Aug  6 15:52 tools
+C:/Users/yanglimei/WorkBuddy/遮天/addons
+C:/Users/yanglimei/WorkBuddy/遮天/addons/gut

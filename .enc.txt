@@ -1,0 +1,7 @@
+OK                           src\main.gd
+OK                           src\core\idle_income_engine.gd
+OK                           src\core\realm_engine.gd
+OK                           tests\unit\test_idle_income_engine.gd
+OK                           tests\unit\test_realm_engine.gd
+OK                           project.godot
+OK                           export_presets.cfg

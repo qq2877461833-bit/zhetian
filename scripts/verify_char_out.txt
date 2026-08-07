@@ -1,0 +1,18 @@
+== characters ==
+assets\characters\character_pang_bo_card.png   512x768 opaque= 96.5% OK
+assets\characters\character_ji_ziyue_avatar.png 128x128 opaque= 92.7% OK
+assets\characters\character_hei_huang_avatar.png 128x128 opaque= 92.7% OK
+assets\characters\character_duan_de_avatar.png 128x128 opaque= 92.7% OK
+assets\characters\character_hei_huang_card.png 512x768 opaque= 96.5% OK
+assets\characters\character_duan_de_card.png   512x768 opaque= 96.5% OK
+assets\characters\character_ji_ziyue_card.png  512x768 opaque= 96.5% OK
+assets\characters\character_pang_bo_avatar.png 128x128 opaque= 92.7% OK
+assets\characters\character_ye_fan_card.png    512x768 opaque= 96.5% OK
+assets\characters\character_ye_fan_avatar.png  128x128 opaque= 92.7% OK
+== gacha ==
+assets\gacha\gacha_bg_ziqi_f1.png              640x360 opaque=100.0% OK
+assets\gacha\gacha_bg_ziqi_f2.png              640x360 opaque=100.0% OK
+assets\gacha\gacha_bg_ziqi_f3.png              640x360 opaque=100.0% OK
+assets\gacha\gacha_card_back.png               512x768 opaque= 97.1% OK
+DONE
+EXIT=0

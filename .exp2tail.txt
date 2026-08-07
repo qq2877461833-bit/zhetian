@@ -1,0 +1,23 @@
+	savepack: step 97: 保存文件：res://.godot/global_script_class_cache.cfg
+	savepack: step 97: 保存文件：res://.godot/uid_cache.bin
+	savepack: step 97: 保存文件：res://project.binary
+savepack: end
+loading_editor_layout: begin: 正在加载编辑器 steps: 5
+	loading_editor_layout: step 0: 正在加载编辑器布局……
+loading_editor_layout: end
+export_exit=0
+total 43272
+drwxr-xr-x 1 YangLimei 1049089        0 Aug  6 16:50 .
+drwxr-xr-x 1 YangLimei 1049089        0 Aug  6 16:22 ..
+-rw-r--r-- 1 YangLimei 1049089    11952 Aug  6 16:50 index.apple-touch-icon.png
+-rw-r--r-- 1 YangLimei 1049089      810 Aug  6 16:25 index.apple-touch-icon.png.import
+-rw-r--r-- 1 YangLimei 1049089     3149 Aug  6 16:50 index.audio.position.worklet.js
+-rw-r--r-- 1 YangLimei 1049089     7298 Aug  6 16:50 index.audio.worklet.js
+-rw-r--r-- 1 YangLimei 1049089     5405 Aug  6 16:50 index.html
+-rw-r--r-- 1 YangLimei 1049089     5702 Aug  6 16:50 index.icon.png
+-rw-r--r-- 1 YangLimei 1049089      774 Aug  6 16:25 index.icon.png.import
+-rw-r--r-- 1 YangLimei 1049089   317142 Aug  6 16:50 index.js
+-rw-r--r-- 1 YangLimei 1049089   222800 Aug  6 16:50 index.pck
+-rw-r--r-- 1 YangLimei 1049089    21443 Aug  6 16:50 index.png
+-rw-r--r-- 1 YangLimei 1049089      759 Aug  6 16:25 index.png.import
+-rw-r--r-- 1 YangLimei 1049089 43682606 Aug  6 16:50 index.wasm

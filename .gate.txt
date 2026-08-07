@@ -1,0 +1,7 @@
+构建目录: build/web
+  引擎壳 raw=41.98MB gzip=9.03MB  (target ≤9.00MB / hard ≤12.00MB)
+  首屏美术 gzip=0.0KB  (target ≤5.00MB / hard ≤6.00MB)
+  阶段1总下载 gzip=9.03MB  (target ≤10.00MB / hard ≤14.00MB)
+⚠️  引擎壳 gzip 9.03MB > target 9.00MB（口径待评审）
+体积门禁通过（含 target 警告，需预算评审）
+gate_exit=0

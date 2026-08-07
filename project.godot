@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+
+config_version=5
+
+[application]
+
+config/name="遮天 · 仙路争锋"
+config/version="0.1.0-alpha.1"
+config/features=PackedStringArray("4.4", "Web")
+run/main_scene="res://src/main.tscn"
+
+[autoload]
+
+TimeService="*res://src/foundation/time_service.gd"
+SaveManager="*res://src/foundation/save_manager.gd"
+ResourceManager="*res://src/foundation/resource_manager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,67 @@
+Godot Engine v4.4.stable.official.4c311cbee - https://godotengine.org
+
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (91)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 continuation byte (f1 ... 11 ...)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (be)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 continuation byte (f1 ... 1 ...)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (91)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 continuation byte (f1 ... 11 ...)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (be)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 continuation byte (f1 ... 1 ...)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (b6)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (91)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 continuation byte (f1 ... 11 ...)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (be)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (af)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 leading byte (aa)
+Unicode parsing error, some characters were replaced with � (U+FFFD): Invalid UTF-8 continuation byte (f1 ... 1 ...)
+---  GUT  ---
+[1m[INFO]:  [0musing [C:/Users/yanglimei/AppData/Roaming/Godot/app_userdata/ZheTian - 遮天] for temporary output.
+Godot version:  4.4.0
+GUT version:  9.4.0
+[4m
+
+res://tests/unit/test_idle_income_engine.gd
+[0m* test_rate_kuhai
+* test_rate_bi_an
+* test_rate_shen_zang
+* test_offline_12h
+* test_offline_over_cap_capped
+* test_offline_zero
+* test_negative_delta_rejected
+[1m7/7 passed.
+[0m[4m
+
+res://tests/unit/test_realm_engine.gd
+[0m* test_first_breakthrough_cost
+* test_ling_cost_exponential_growth
+* test_yuan_cost_step_per_big_realm
+* test_stage_req_formula
+* test_sample_costs_match_gdd_table
+* test_negative_index_rejected
+[1m6/6 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+---- Totals ----
+Scripts           2
+Tests             13
+  Passing         13
+Asserts           21
+Time              0.061s
+
+
+[32m---- All tests passed! ----
+[0m
+gut_exit=0

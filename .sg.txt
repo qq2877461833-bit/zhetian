@@ -1,0 +1,6 @@
+构建目录: /tmp/zt-build/web
+  引擎壳 raw=2.86MB gzip=2.9KB  (target ≤9.00MB / hard ≤12.00MB)
+  首屏美术 gzip=1.0KB  (target ≤5.00MB / hard ≤6.00MB)
+  阶段1总下载 gzip=3.9KB  (target ≤10.00MB / hard ≤14.00MB)
+  远程Bundle huanggu: 1.5KB  OK
+✅ 体积门禁通过

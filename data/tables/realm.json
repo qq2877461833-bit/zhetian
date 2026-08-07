@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "table": "realm",
+  "description": "境界体系与突破成本（数值锚定 GDD-001 §3.1/§3.3/§8.1；GDD-002 §3.3 账号上限）",
+  "params": {
+    "R0": 10,
+    "B": 1.6,
+    "sub_bonus": 0.05,
+    "cost_growth_ling": 1.65,
+    "cost_growth_yuan": 1.55,
+    "c0_ling": 50000,
+    "c0_yuan": 2,
+    "eff_offline": 0.8,
+    "cap_offline_sec": 43200,
+    "big_breakthrough_wait_sec": {
+      "lunhai_to_daogong": 3600,
+      "default": 7200
+    },
+    "account_ceiling_gap": 1,
+    "slot_unlock": [
+      {
+        "slot_index": 0,
+        "unlock_condition": "initial"
+      },
+      {
+        "slot_index": 1,
+        "unlock_condition": "realm_graduate",
+        "realm_id": "lunhai"
+      },
+      {
+        "slot_index": 2,
+        "unlock_condition": "realm_graduate",
+        "realm_id": "daogong"
+      }
+    ]
+  },
+  "realms": [
+    {
+      "id": "lunhai",
+      "name": "轮海境",
+      "index": 0,
+      "sub_stages": [
+        {
+          "id": "kuhai",
+          "name": "苦海",
+          "index": 0
+        },
+        {
+          "id": "mingquan",
+          "name": "命泉",
+          "index": 1
+        },
+        {
+          "id": "shenqiao",
+          "name": "神桥",
+          "index": 2
+        },
+        {
+          "id": "bian",
+          "name": "彼岸",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "id": "daogong",
+      "name": "道宫境",
+      "index": 1,
+      "sub_stages": [
+        {
+          "id": "xinzang",
+          "name": "心藏",
+          "index": 4
+        },
+        {
+          "id": "ganzang",
+          "name": "肝藏",
+          "index": 5
+        },
+        {
+          "id": "pizang",
+          "name": "脾藏",
+          "index": 6
+        },
+        {
+          "id": "feizang",
+          "name": "肺藏",
+          "index": 7
+        },
+        {
+          "id": "shenzang",
+          "name": "肾藏",
+          "index": 8
+        }
+      ]
+    }
+  ],
+  "breakthrough_costs": [
+    {
+      "sub_index": 0,
+      "cost_ling": 50000,
+      "cost_yuan": 2,
+      "stage_req": 1
+    },
+    {
+      "sub_index": 1,
+      "cost_ling": 82500,
+      "cost_yuan": 3,
+      "stage_req": 4
+    },
+    {
+      "sub_index": 2,
+      "cost_ling": 136125,
+      "cost_yuan": 5,
+      "stage_req": 7
+    },
+    {
+      "sub_index": 3,
+      "cost_ling": 224606,
+      "cost_yuan": 8,
+      "stage_req": 10
+    },
+    {
+      "sub_index": 4,
+      "cost_ling": 370600,
+      "cost_yuan": 13,
+      "stage_req": 13
+    },
+    {
+      "sub_index": 5,
+      "cost_ling": 611490,
+      "cost_yuan": 21,
+      "stage_req": 16
+    },
+    {
+      "sub_index": 6,
+      "cost_ling": 1008959,
+      "cost_yuan": 34,
+      "stage_req": 19
+    },
+    {
+      "sub_index": 7,
+      "cost_ling": 1664782,
+      "cost_yuan": 55,
+      "stage_req": 22
+    },
+    {
+      "sub_index": 8,
+      "cost_ling": 2746890,
+      "cost_yuan": 89,
+      "stage_req": 25
+    }
+  ]
+}

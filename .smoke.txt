@@ -1,0 +1,4 @@
+Godot Engine v4.4.stable.official.4c311cbee - https://godotengine.org
+
+[遮天] 垂直切片启动：境界=LUNHAI · 苦海 已通关=0
+smoke_exit=0

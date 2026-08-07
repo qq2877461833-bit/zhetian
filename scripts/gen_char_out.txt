@@ -1,0 +1,33 @@
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_ye_fan_card.png OK 104.9KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_ye_fan_avatar.png OK 2.0KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_pang_bo_card.png OK 102.1KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_pang_bo_avatar.png OK 2.2KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_ji_ziyue_card.png OK 97.1KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_ji_ziyue_avatar.png OK 2.1KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_hei_huang_card.png OK 136.6KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_hei_huang_avatar.png OK 1.9KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_duan_de_card.png OK 122.4KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\characters\character_duan_de_avatar.png OK 2.1KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\gacha\gacha_bg_ziqi_f1.png OK 37.0KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\gacha\gacha_bg_ziqi_f2.png OK 82.1KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\gacha\gacha_bg_ziqi_f3.png OK 109.3KB
+C:\Users\yanglimei\WorkBuddy\遮天\assets\gacha\gacha_card_back.png OK 45.1KB
+---- assets/characters ----
+  character_duan_de_avatar.png                  2.1 KB
+  character_duan_de_card.png                  122.4 KB
+  character_hei_huang_avatar.png                1.9 KB
+  character_hei_huang_card.png                136.6 KB
+  character_ji_ziyue_avatar.png                 2.1 KB
+  character_ji_ziyue_card.png                  97.1 KB
+  character_pang_bo_avatar.png                  2.2 KB
+  character_pang_bo_card.png                  102.1 KB
+  character_ye_fan_avatar.png                   2.0 KB
+  character_ye_fan_card.png                   104.9 KB
+---- assets/gacha ----
+  gacha_bg_ziqi_f1.png                         37.0 KB
+  gacha_bg_ziqi_f2.png                         82.1 KB
+  gacha_bg_ziqi_f3.png                        109.3 KB
+  gacha_card_back.png                          45.1 KB
+TOTAL: 846.78 KB
+DONE
+EXIT=0

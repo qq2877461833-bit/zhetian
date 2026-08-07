@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "table": "skill_sets",
+  "description": "功法系统（单主角修仙：拾取秘笈→修炼突破→装备生效），主角叶凡专属",
+  "categories": [
+    {
+      "id": "cultivation",
+      "name": "修炼类",
+      "desc": "加速修炼产出"
+    },
+    {
+      "id": "combat",
+      "name": "战斗类",
+      "desc": "战斗输出增益"
+    },
+    {
+      "id": "utility",
+      "name": "辅助类",
+      "desc": "资源获取"
+    }
+  ],
+  "books": [
+    {
+      "id": "sk_001",
+      "name": "荒古炼体术",
+      "category": "cultivation",
+      "rarity": "fan",
+      "effect": "idle_rate",
+      "value": 0.08,
+      "max_level": 10,
+      "desc": "荒古禁地流传的炼体法门，修炼产出 +8%"
+    },
+    {
+      "id": "sk_002",
+      "name": "道宫心法",
+      "category": "cultivation",
+      "rarity": "ling",
+      "effect": "idle_rate",
+      "value": 0.15,
+      "max_level": 15,
+      "desc": "道宫秘境悟得心法，修炼速率 +15%"
+    },
+    {
+      "id": "sk_003",
+      "name": "六道轮回拳",
+      "category": "combat",
+      "rarity": "ling",
+      "effect": "atk_bonus",
+      "value": 0.033,
+      "max_level": 12,
+      "desc": "从圣体中悟出拳法，攻击力 +12%"
+    },
+    {
+      "id": "sk_004",
+      "name": "虚空经·镇",
+      "category": "combat",
+      "rarity": "xuan",
+      "effect": "atk_bonus",
+      "value": 0.06,
+      "max_level": 20,
+      "desc": "虚空大帝镇世功法，攻击力 +25%"
+    },
+    {
+      "id": "sk_005",
+      "name": "紫气东来诀",
+      "category": "utility",
+      "rarity": "fan",
+      "effect": "energy_recover",
+      "value": 0.2,
+      "max_level": 10,
+      "desc": "紫气导引术，体力恢复 +20%"
+    },
+    {
+      "id": "sk_006",
+      "name": "源天书",
+      "category": "utility",
+      "rarity": "ling",
+      "effect": "yuan_bonus",
+      "value": 0.15,
+      "max_level": 15,
+      "desc": "天书奇技，源石收益 +15%"
+    },
+    {
+      "id": "sk_007",
+      "name": "混沌诀",
+      "category": "cultivation",
+      "rarity": "xuan",
+      "effect": "idle_rate",
+      "value": 0.25,
+      "max_level": 20,
+      "desc": "混沌初开之秘，修炼速率 +25%"
+    },
+    {
+      "id": "sk_008",
+      "name": "神魔拳",
+      "category": "combat",
+      "rarity": "di",
+      "effect": "atk_bonus",
+      "value": 0.08,
+      "max_level": 20,
+      "desc": "神魔之躯演化拳法，攻击力 +40%"
+    },
+    {
+      "id": "sk_009",
+      "name": "一气化三清",
+      "category": "cultivation",
+      "rarity": "di",
+      "effect": "idle_rate",
+      "value": 0.08,
+      "max_level": 20,
+      "desc": "道家无上秘术，修炼速率 +40%"
+    },
+    {
+      "id": "sk_010",
+      "name": "斩我明道诀",
+      "category": "combat",
+      "rarity": "tian",
+      "effect": "atk_bonus",
+      "value": 0.1,
+      "max_level": 20,
+      "desc": "斩尽自我方见真我，攻击力 +60%"
+    },
+    {
+      "id": "sk_011",
+      "name": "欺天术",
+      "category": "utility",
+      "rarity": "di",
+      "effect": "energy_recover",
+      "value": 0.5,
+      "max_level": 25,
+      "desc": "欺瞒天道之术，体力恢复 +50%"
+    },
+    {
+      "id": "sk_012",
+      "name": "无字天书",
+      "category": "utility",
+      "rarity": "tian",
+      "effect": "yuan_bonus",
+      "value": 0.6,
+      "max_level": 30,
+      "desc": "无字胜有字，源石收益 +60%"
+    }
+  ],
+  "train": {
+    "ling_cost_per_level": 800,
+    "ling_growth": 1.15,
+    "max_level_cap": 20
+  },
+  "active_slots": 3
+}

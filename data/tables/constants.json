@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "table": "constants",
+  "description": "全局常量（货币/上限/默认值；数值锚定 GDD-001 §5.1 / GDD-003 §3.5 / GDD-004 §7）",
+  "currencies": {
+    "LING": { "name": "灵石", "soft": true,  "daily_source": true },
+    "YUAN": { "name": "源石", "soft": false, "daily_source": false }
+  },
+  "defaults": {
+    "start_ling": 0,
+    "start_yuan": 0,
+    "start_energy": 120,
+    "start_slots": 1,
+    "max_slots_mvp": 3,
+    "start_main_realm": "lunhai",
+    "start_sub_index": 0
+  },
+  "limits": {
+    "offline_cap_sec": 43200,
+    "daily_energy_claim": 2,
+    "daily_energy_paid_cap": 3,
+    "emperor_daily_challenges": 10,
+    "tower_daily_floors": 10
+  },
+  "economy_redlines": {
+    "yuan_not_from_idle": true,
+    "sell_growth_forbidden": true,
+    "energy_unlimited_purchase_forbidden": true,
+    "source_stone_season_budget_ratio": 0.05
+  }
+}

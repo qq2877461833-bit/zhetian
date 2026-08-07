@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "table": "battle",
+  "description": "战斗数值（伤害/克制/体力）与主线关卡（数值锚定 GDD-003 §3.3/§3.5/§4.1/§5.1/§5.3）",
+  "damage": {
+    "k_def": 300,
+    "crit_mult": 1.5,
+    "timeout_sec": 120,
+    "manual_benefit_min": 0.05,
+    "manual_benefit_max": 0.1
+  },
+  "counter": {
+    "huanggu_tizhi": {
+      "huanggu_tizhi": 1.0,
+      "xiandao_shentong": 1.5,
+      "bingqi_liupai": 0.67
+    },
+    "xiandao_shentong": {
+      "huanggu_tizhi": 0.67,
+      "xiandao_shentong": 1.0,
+      "bingqi_liupai": 1.5
+    },
+    "bingqi_liupai": {
+      "huanggu_tizhi": 1.5,
+      "xiandao_shentong": 0.67,
+      "bingqi_liupai": 1.0
+    }
+  },
+  "energy": {
+    "cap": 120,
+    "recover_per_sec": 0.003333333,
+    "free_claim_daily": 2,
+    "free_claim_amount": 30,
+    "paid_claim_daily": 3,
+    "paid_claim_amount": 60,
+    "stage_cost": 10
+  },
+  "stages": [
+    {
+      "id": "s001",
+      "chapter": 1,
+      "order": 1,
+      "name": "九龙拉棺·异象",
+      "is_verify": true,
+      "verify_sub_index": 0,
+      "difficulty": 0.95,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 950
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 80000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s002",
+      "chapter": 1,
+      "order": 2,
+      "name": "九龙拉棺·荒古禁地·外围",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.95,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 959
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s003",
+      "chapter": 1,
+      "order": 3,
+      "name": "九龙拉棺·古木迷踪",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.95,
+      "enemies": [
+        {
+          "class": "bingqi_liupai",
+          "power": 969
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s004",
+      "chapter": 1,
+      "order": 4,
+      "name": "九龙拉棺·荒古巨兽·遭遇",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.95,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 978
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s005",
+      "chapter": 1,
+      "order": 5,
+      "name": "九龙拉棺·禁区异象",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.95,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 988
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 5
+      }
+    },
+    {
+      "id": "s006",
+      "chapter": 2,
+      "order": 6,
+      "name": "荒古禁地·九龙拉棺·异象",
+      "is_verify": true,
+      "verify_sub_index": 5,
+      "difficulty": 0.97,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1018
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 80000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s007",
+      "chapter": 2,
+      "order": 7,
+      "name": "荒古禁地·外围",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.97,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1028
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s008",
+      "chapter": 2,
+      "order": 8,
+      "name": "荒古禁地·古木迷踪",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.97,
+      "enemies": [
+        {
+          "class": "bingqi_liupai",
+          "power": 1037
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s009",
+      "chapter": 2,
+      "order": 9,
+      "name": "荒古禁地·荒古巨兽·遭遇",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.97,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1047
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s010",
+      "chapter": 2,
+      "order": 10,
+      "name": "荒古禁地·禁区异象",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.97,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1057
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 5
+      }
+    },
+    {
+      "id": "s011",
+      "chapter": 3,
+      "order": 11,
+      "name": "东荒大荒·九龙拉棺·异象",
+      "is_verify": true,
+      "verify_sub_index": 10,
+      "difficulty": 0.99,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1089
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 80000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s012",
+      "chapter": 3,
+      "order": 12,
+      "name": "东荒大荒·荒古禁地·外围",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.99,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1098
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s013",
+      "chapter": 3,
+      "order": 13,
+      "name": "东荒大荒·古木迷踪",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.99,
+      "enemies": [
+        {
+          "class": "bingqi_liupai",
+          "power": 1108
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s014",
+      "chapter": 3,
+      "order": 14,
+      "name": "东荒大荒·荒古巨兽·遭遇",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.99,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1118
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s015",
+      "chapter": 3,
+      "order": 15,
+      "name": "东荒大荒·禁区异象",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 0.99,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1128
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 5
+      }
+    },
+    {
+      "id": "s016",
+      "chapter": 4,
+      "order": 16,
+      "name": "中州·九龙拉棺·异象",
+      "is_verify": true,
+      "verify_sub_index": 15,
+      "difficulty": 1.01,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1161
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 80000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s017",
+      "chapter": 4,
+      "order": 17,
+      "name": "中州·荒古禁地·外围",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.01,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1171
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s018",
+      "chapter": 4,
+      "order": 18,
+      "name": "中州·古木迷踪",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.01,
+      "enemies": [
+        {
+          "class": "bingqi_liupai",
+          "power": 1181
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s019",
+      "chapter": 4,
+      "order": 19,
+      "name": "中州·荒古巨兽·遭遇",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.01,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1191
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s020",
+      "chapter": 4,
+      "order": 20,
+      "name": "中州·禁区异象",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.01,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1201
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 5
+      }
+    },
+    {
+      "id": "s021",
+      "chapter": 5,
+      "order": 21,
+      "name": "北原·九龙拉棺·异象",
+      "is_verify": true,
+      "verify_sub_index": 20,
+      "difficulty": 1.03,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1236
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 80000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s022",
+      "chapter": 5,
+      "order": 22,
+      "name": "北原·荒古禁地·外围",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.03,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1246
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s023",
+      "chapter": 5,
+      "order": 23,
+      "name": "北原·古木迷踪",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.03,
+      "enemies": [
+        {
+          "class": "bingqi_liupai",
+          "power": 1256
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s024",
+      "chapter": 5,
+      "order": 24,
+      "name": "北原·荒古巨兽·遭遇",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.03,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1266
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s025",
+      "chapter": 5,
+      "order": 25,
+      "name": "北原·禁区异象",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.03,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1277
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 5
+      }
+    },
+    {
+      "id": "s026",
+      "chapter": 6,
+      "order": 26,
+      "name": "帝路初章·九龙拉棺·异象",
+      "is_verify": true,
+      "verify_sub_index": 25,
+      "difficulty": 1.05,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1312
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 80000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s027",
+      "chapter": 6,
+      "order": 27,
+      "name": "帝路初章·荒古禁地·外围",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.05,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1323
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s028",
+      "chapter": 6,
+      "order": 28,
+      "name": "帝路初章·古木迷踪",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.05,
+      "enemies": [
+        {
+          "class": "bingqi_liupai",
+          "power": 1333
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s029",
+      "chapter": 6,
+      "order": 29,
+      "name": "帝路初章·荒古巨兽·遭遇",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.05,
+      "enemies": [
+        {
+          "class": "huanggu_tizhi",
+          "power": 1344
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 2
+      }
+    },
+    {
+      "id": "s030",
+      "chapter": 6,
+      "order": 30,
+      "name": "帝路初章·禁区异象",
+      "is_verify": false,
+      "verify_sub_index": null,
+      "difficulty": 1.05,
+      "enemies": [
+        {
+          "class": "xiandao_shentong",
+          "power": 1354
+        }
+      ],
+      "turn_limit": 12,
+      "first_clear": {
+        "ling": 40000,
+        "yuan": 5
+      }
+    }
+  ]
+}
