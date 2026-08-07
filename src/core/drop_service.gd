@@ -38,6 +38,8 @@ func run_dungeon(model: SaveModel, dungeon_id: String, tier: int, day_key: Strin
 			model.yuan += int(drops[k])
 		elif k == "ling":
 			model.ling += int(drops[k])
+		elif k == "gacha_ticket":
+			model.gacha_tickets += int(drops[k])
 		## exp_book / artifact_mat / skill_mat / yuan_shard 先进背包（简化：记入 stats 计数）
 		model.stats[k] = int(model.stats.get(k, 0)) + int(drops[k])
 	return { "ok": true, "drops": drops }

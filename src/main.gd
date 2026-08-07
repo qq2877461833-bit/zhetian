@@ -1324,7 +1324,7 @@ func _team_power() -> float:
 
 
 func _drop_name(k: String) -> String:
-	var names := { "ling": "灵石", "yuan": "源石", "yuan_shard": "源石碎片", "exp_book": "经验书", "artifact_mat": "法宝材料", "skill_mat": "功法材料" }
+	var names := { "ling": "灵石", "yuan": "源石", "yuan_shard": "源石碎片", "exp_book": "经验书", "artifact_mat": "法宝材料", "skill_mat": "功法材料", "gacha_ticket": "抽卡券" }
 	return String(names.get(k, k))
 
 
@@ -1697,8 +1697,9 @@ func _show_battle_result(stage_name: String, result: Dictionary, note: String, e
 	## 演出用伤害序列（与模拟一致；不足 2 回合用兜底）
 	var hero_dmgs: Array = result.get("hero_dmgs", [150.0, 120.0])
 	var enemy_dmgs: Array = result.get("enemy_dmgs", [300.0, 200.0])
-	var hero_left := hero_cur
-	var enemy_left := enemy_cur
+	## 血条从满血起步，逐回合扣真实伤害，结算时对齐最终血量（修复：原误用最终值起步）
+	var hero_left := hero_max
+	var enemy_left := enemy_max
 
 	_battle_layer.visible = true
 	var win := String(result.get("winner", "")) == "player"
@@ -1775,6 +1776,12 @@ func _show_battle_result(stage_name: String, result: Dictionary, note: String, e
 		hero_left = maxf(hero_left - d2, 0.0)
 		hero_bar.value = hero_left
 		hero_bar_txt.text = "HP %d/%d" % [int(hero_left), int(hero_max)])
+	## 胜负演出：血条对齐真实结算血量（播完 2 回合后跳转最终值）
+	tw.tween_callback(func() -> void:
+		hero_bar.value = hero_cur
+		hero_bar_txt.text = "HP %d/%d" % [int(hero_cur), int(hero_max)]
+		enemy_bar.value = enemy_cur
+		enemy_bar_txt.text = "HP %d/%d" % [int(enemy_cur), int(enemy_max)])
 	## 胜负演出
 	if win:
 		tw.tween_property(enemy_img, "position", Vector2(enemy_home.x + 40, enemy_home.y + 24), 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
