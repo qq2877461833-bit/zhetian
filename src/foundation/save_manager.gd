@@ -1,33 +1,53 @@
 extends Node
 ## 存档管理（基础层 · Autoload: SaveManager）
-## 垂直切片：user:// JSON 明文版（加密 + 版本迁移 = ADR-0002，Phase 后续落地）
-## 服务端权威原则（ADR-0003）：本地存档仅为缓存/容错，数值最终以服务端为准（切片阶段无服务端，本地为准）
-## 注：用 preload 而非 class_name 引用 SaveModel（autoload 解析期早于全局类缓存，preload 保证 headless/CI 确定性）
+## 多账号：存档按账号隔离 user://saves/<username>.json
+## 兼容：无账号时用旧 save.json（guest 账号继承）；老玩家不丢档
+## 服务端权威原则（ADR-0003）：本地存档仅为缓存/容错（切片阶段无服务端，本地为准）
 
 const SaveModelScript := preload("res://src/core/save_model.gd")
-const SAVE_PATH := "user://save.json"
+const LEGACY_PATH := "user://save.json"
 
 
-func save(model) -> void:
-	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+func _saves_dir() -> String:
+	var d := "user://saves"
+	if not DirAccess.dir_exists_absolute(ProjectSettings.globalize_path(d)):
+		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(d))
+	return d
+
+
+func _path_for(user: String) -> String:
+	return "%s/%s.json" % [_saves_dir(), user]
+
+
+## 存档（按账号）；user 为空时写入旧路径（兼容）
+func save(model, user: String = "") -> void:
+	var path := _path_for(user) if not user.is_empty() else LEGACY_PATH
+	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f == null:
-		push_warning("[SaveManager] 存档写入失败: %s" % SAVE_PATH)
+		push_warning("[SaveManager] 存档写入失败: %s" % path)
 		return
 	f.store_string(JSON.stringify(model.to_dict()))
 	f.close()
 
 
-## 删除存档（调试/重置用）
-func delete_save() -> void:
-	if FileAccess.file_exists(SAVE_PATH):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
+## 删除存档（调试/重置用；按账号）
+func delete_save(user: String = "") -> void:
+	var path := _path_for(user) if not user.is_empty() else LEGACY_PATH
+	if FileAccess.file_exists(path):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 
 
 ## 加载存档；无档/坏档回退默认档（不崩溃）
-func load_save():
-	if not FileAccess.file_exists(SAVE_PATH):
-		return SaveModelScript.default_save()
-	var txt := FileAccess.get_file_as_string(SAVE_PATH)
+## user 为空：优先旧 save.json（guest 迁移）
+func load_save(user: String = ""):
+	var path := _path_for(user) if not user.is_empty() else LEGACY_PATH
+	if not FileAccess.file_exists(path):
+		## guest 场景：旧档存在则迁移为 guest 存档
+		if user == "guest" and FileAccess.file_exists(LEGACY_PATH):
+			path = LEGACY_PATH
+		else:
+			return SaveModelScript.default_save()
+	var txt := FileAccess.get_file_as_string(path)
 	var parsed: Variant = JSON.parse_string(txt)
 	if parsed is Dictionary:
 		return SaveModelScript.from_dict(parsed)

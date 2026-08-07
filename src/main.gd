@@ -46,6 +46,7 @@ const SaveModelScript := preload("res://src/core/save_model.gd")
 const CharacterServiceScript := preload("res://src/core/character_service.gd")
 const GachaServiceScript := preload("res://src/core/gacha_service.gd")
 const DropServiceScript := preload("res://src/core/drop_service.gd")
+const AuthServiceScript := preload("res://src/core/auth_service.gd")
 const ArenaServiceScript := preload("res://src/core/arena_service.gd")
 const EquipmentServiceScript := preload("res://src/core/equipment_service.gd")
 const SkillServiceScript := preload("res://src/core/skill_service.gd")
@@ -103,13 +104,20 @@ var _wait_start_ts := 0
 var _wait_end_ts := 0
 var _stage_order := 1
 var _gacha_seq := 0  ## 演出序号（区分连续演出）
+var _auth: AuthServiceScript
+var _login_layer: Control
 
 ## 紫气演出背景帧（美术线 Sprint 2 资产）
 var _ziqi_frames: Array[Texture2D] = []
 
 
 func _ready() -> void:
-	_model = SaveManager.load_save()
+	_auth = AuthServiceScript.new()
+	## 多账号：已登录加载该账号存档；未登录显示登录层（登录后加载）
+	if _auth.is_logged_in():
+		_model = SaveManager.load_save(_auth.current_user())
+	else:
+		_model = SaveManager.load_save()  ## 临时默认档（登录层覆盖，登录后重载）
 	_realm_tbl = ResourceManager.load_table("res://data/tables/realm.json")
 	_battle_tbl = ResourceManager.load_table("res://data/tables/battle.json")
 	_char_tbl = ResourceManager.load_table("res://data/tables/character.json")
@@ -136,6 +144,9 @@ func _ready() -> void:
 	_refresh_hud()
 	print("[遮天] Sprint 3 启动：境界=%s 已通关=%d 券=%d 角色=%d" % [
 		_realm_name(), _model.highest_cleared_order(), _model.gacha_tickets, _model.characters.size()])
+	## 多账号：未登录显示登录层
+	if not _auth.is_logged_in():
+		_show_login_layer()
 
 
 # --------------------------- 初始化 ---------------------------
@@ -605,6 +616,7 @@ func _build_main() -> void:
 	quick.add_child(_mk_button("装备培养", func() -> void: _switch_tab("equip"), C_GOLD))
 	quick.add_child(_mk_button("功法修习", func() -> void: _switch_tab("skill"), Color("#9C6ADE")))
 	quick.add_child(_mk_button("属性", func() -> void: _show_hero_detail(), C_TEXT))
+	quick.add_child(_mk_button("切换账号", func() -> void: _logout(), C_VERMILION))
 
 	# 修炼产出（单主角）
 	var rate := _calc_hero_rate(hero_sub)
@@ -1806,7 +1818,10 @@ func _show_battle_result(stage_name: String, result: Dictionary, note: String, e
 
 func _save() -> void:
 	_model.last_offline_ts = TimeService.now()
-	SaveManager.save(_model)
+	if _auth != null and _auth.is_logged_in():
+		SaveManager.save(_model, _auth.current_user())
+	else:
+		SaveManager.save(_model)
 
 
 ## 测试/正式版区分：编辑器模式 或 URL 带 ?debug=1 时启用调试区（正式发布关掉）
@@ -2131,3 +2146,100 @@ func _show_skill_detail(book_id: String) -> void:
 	lines.append(String(book.get("desc", "")))
 	_show_popup("功法详情", "
 ".join(lines))
+
+# --------------------------- 账号系统（登录层） ---------------------------
+
+## 登录层：全屏覆盖，用户名/密码 + 登录/注册
+func _show_login_layer() -> void:
+	if _login_layer != null:
+		_login_layer.queue_free()
+	_login_layer = Control.new()
+	_login_layer.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(_login_layer)
+	## 暗色底（复用主题）
+	var bg := ColorRect.new()
+	bg.color = Color(0.05, 0.09, 0.07, 0.97)
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_login_layer.add_child(bg)
+	## 居中的登录卡片
+	var panel := VBoxContainer.new()
+	panel.add_theme_constant_override("separation", 10)
+	panel.add_theme_stylebox_override("panel", _panel_style(C_BG_DEEP, C_GOLD))
+	panel.custom_minimum_size = Vector2(340, 0)
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	_login_layer.add_child(panel)
+	var title := _mk_title("遮天 · 仙路争锋", 26)
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(title)
+	var sub := _mk_dim("登录后开始修仙 · 进度自动保存", 13)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(sub)
+
+	var user_edit := LineEdit.new()
+	user_edit.placeholder_text = "用户名（2-16 字符）"
+	user_edit.add_theme_font_override("font", FONT_SC)
+	user_edit.custom_minimum_size = Vector2(0, 40)
+	panel.add_child(user_edit)
+	var pwd_edit := LineEdit.new()
+	pwd_edit.placeholder_text = "密码（至少 4 位）"
+	pwd_edit.secret = true
+	pwd_edit.add_theme_font_override("font", FONT_SC)
+	pwd_edit.custom_minimum_size = Vector2(0, 40)
+	panel.add_child(pwd_edit)
+
+	var err_label := _mk_label("", 13)
+	err_label.add_theme_color_override("font_color", C_VERMILION)
+	err_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(err_label)
+
+	var btns := HBoxContainer.new()
+	btns.add_theme_constant_override("separation", 10)
+	panel.add_child(btns)
+	var login_btn := _mk_button("登录", func() -> void:
+		var u := user_edit.text
+		var pw := pwd_edit.text
+		var r := _auth.login(u, pw)
+		if not r.get("ok", false):
+			err_label.text = String(r.get("reason", "?"))
+			return
+		_on_login_success())
+	btns.add_child(login_btn)
+	var reg_btn := _mk_button("注册新账号", func() -> void:
+		var u := user_edit.text
+		var pw := pwd_edit.text
+		var r := _auth.register(u, pw)
+		if not r.get("ok", false):
+			err_label.text = String(r.get("reason", "?"))
+			return
+		_on_login_success(), Color("#9C6ADE"))
+	btns.add_child(reg_btn)
+
+	var hint := _mk_dim("新玩家点「注册新账号」；已有账号直接登录。", 12)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	panel.add_child(hint)
+	## 回车登录
+	user_edit.text_submitted.connect(func(_t: String) -> void: login_btn.pressed.emit())
+	pwd_edit.text_submitted.connect(func(_t: String) -> void: login_btn.pressed.emit())
+	user_edit.grab_focus()
+
+
+## 登录成功：重载该账号存档 + 关闭登录层 + 刷新界面
+func _on_login_success() -> void:
+	var user := _auth.current_user()
+	## 保存临时默认档进度（若登录前已产生）→ 转给当前账号（新档即默认档）
+	_model = SaveManager.load_save(user)
+	if _login_layer != null:
+		_login_layer.queue_free()
+		_login_layer = null
+	_stage_order = clampi(_model.highest_cleared_order() + 1, 1, MAX_SLICE_STAGES)
+	_switch_tab("main")
+	_refresh_hud()
+	_save()
+	_show_popup("欢迎", "道友 %s 请开始修仙！" % user)
+
+
+## 登出：返回登录界面（进度已存）
+func _logout() -> void:
+	_save()
+	_auth.logout()
+	get_tree().reload_current_scene()

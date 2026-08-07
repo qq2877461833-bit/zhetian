@@ -6,7 +6,7 @@ config_version=5
 
 [application]
 
-config/name="遮天 · 仙路争锋"
+config/name="ZheTian - 遮天仙路争锋"
 config/version="0.1.0-alpha.1"
 config/features=PackedStringArray("4.4", "Web")
 run/main_scene="res://src/main.tscn"
